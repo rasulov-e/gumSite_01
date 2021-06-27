@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://kit.fontawesome.com/c0c56cf73a.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="styles.css">
+	<script src="app.js" defer></script>
+	<title>GumSite</title>
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="navbar-left">
+
+		</div>
+		<div class="navbar-center">
+			<h1>GumSite</h1>
+		</div>
+		<div class="navbar-right">
+			<button an class="cart-icon" style="background-color: var(--componentColor); border: none;">
+				<i class="fas fa-cart-plus"></i>
+			</button>
+			<div class="cart-counter">
+				0
+			</div>
+
+		</div>
+	</div>
+
+	<section class="products">
+		<!--<article class="product">
+			<div class="image-container">
+				<img src="./images/gummy.png" alt="photo">
+			</div>
+			<h2>Product name</h2>
+			<h3>cost</h3>
+			<button class="bag-btn">ADD TO CART</button>
+		</article> -->
+	</section>
+
+	<div class="cart-overlay">
+		<div class="cart">
+			<button class="close-cart" style="background-color: var(--componentColor); border: none;">
+				<i class="fas fa-window-close"></i>
+			</button>
+			<h2>Ваша Корзина</h2>
+			<div class="cart-content">
+
+				<section class="cart-items">
+					<div class="cart-item">
+						<img src="./images/фанта.png" alt="" style="height: 100%;">
+						<div>
+							<h4>фанта</h4>
+							<h5>123 сом</h5>
+							<span class="remove-item">убрать</span>
+						</div>
+						<div>
+							<i class="fas fa-chevron-up"></i>
+							<p class="item-amount">1</p>
+							<i class="fas fa-chevron-down"></i>
+						</div>
+					</div>
+				</section>
+
+
+				<div class="cart-footer">
+					<h3>Сумма заказа: <span class="cart-total">
+							0 сом
+						</span></h3>
+					<button class="clear-cart-btn">clear cart</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

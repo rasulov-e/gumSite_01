@@ -98,7 +98,7 @@ button:hover {
 	position: fixed;
 	top: 0;
 	right: 0;
-	width: 100%;
+	width: 80%;
 	height: 100%;
 	transition: var(--mainTransition);
 	background: var(--componentColor);
@@ -108,10 +108,11 @@ button:hover {
 	visibility: hidden;
   }
   .cart {
+	padding: 50px;
 	position: fixed;
 	top: 0;
 	right: 0;
-	width: 100%;
+	width: 95%;
 	height: 100%;
 	overflow: scroll;
 	z-index: 3;
@@ -122,30 +123,12 @@ button:hover {
   }
 
   .cart-overlay-show {
-	position: fixed;
-	top: 0;
-	right: 0;
-	width: 40%;
-	height: 100%;
-	transition: var(--mainTransition);
-	background: var(--componentColor);
-	z-index: 2;
-
-	color: var(--componentColor);
+	visibility: visible;
   }
   .cart-show {
-	position: fixed;
-	top: 0;
-	right: 0;
-	width: 40%;
-	height: 100%;
-	overflow: scroll;
-	z-index: 3;
-	background: var(--componentColor);
-	padding: 1.5rem;
-	transition: var(--mainTransition);
 	transform: translateX(0);
-  }@media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 768px) {
 	.cart {
 	  width: 30vw;
 	  min-width: 450px;

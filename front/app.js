@@ -119,6 +119,8 @@ const productsDOM = document.querySelector(".products");
 
 let cart = [];
 let buttonsDOM = [];
+let price = 0;
+let products;
 
 class Products {
 	async getProducts() {
@@ -127,7 +129,7 @@ class Products {
 				method: "GET",
 			});
 			let data = await result.json();
-			let products = data;
+			products = data;
 			return products;
 		} catch (error) {
 			console.log(error);
@@ -169,12 +171,27 @@ class UI {
 				event.target.innerText = "В корзине";
 				event.target.disabled = true;
 
-				let cartItem = { id: button.dataset.id };
+				let cartItem = { ...Storage.getProduct(id), amount: 1 };
+
 				cart = [...cart, cartItem];
 
 				Storage.saveCart(cart);
+				this.setCartValues(cart);
 			});
 		});
+	}
+	setCartValues(cart) {
+		let tempTotal = 0;
+		let itemsTotal = 0;
+
+		cart.forEach(item => {
+			tempTotal += Storage.getProduct(item.id);
+
+			itemsTotal++;
+		});
+		cartTotal.innerText = itemsTotal;
+		cartItems.innerText = itemsTotal;
+		console.log(cartTotal, cartItems);
 	}
 }
 
@@ -190,6 +207,11 @@ class Storage {
 	}
 	static saveCart() {
 		localStorage.setItem("cart", JSON.stringify(cart));
+	}
+	static getProductAt(index) {
+		let products = JSON.parse(localStorage.getItem('products'));
+
+		return products[index];
 	}
 }
 
@@ -207,10 +229,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 cartShowBtn.addEventListener("click", function () {
-	cartOverlay.className = 'cart-overlay-show'
+	cartOverlay.classList.add('cart-overlay-show')
 
-	cartDOM.className = 'cart-show'
+	cartDOM.classList.add('cart-show')
 });
 cartCloseBtn.addEventListener("click", function () {
-	cartOverlay.className = 'cart-overlay'
+	cartOverlay.classList.remove('cart-overlay')
+	cartDOM.classList.remove('cart-show')
+
 });
